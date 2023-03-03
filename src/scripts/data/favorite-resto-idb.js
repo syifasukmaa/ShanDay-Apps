@@ -14,7 +14,6 @@ const FavoriteRestaurantIdb = {
     if (!id) {
       return;
     }
-    
     return (await dbPromise).get(OBJECT_STORE_NAME, id);
   },
 

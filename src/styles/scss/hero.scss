@@ -68,10 +68,11 @@ hero-resto {
     border-radius: 5px;
     color: $light-color;
     cursor: pointer;
-    font-size: 0.8em;
-    padding: 0.6em;
+    font-size: 0.9em;
+    padding: 1em;
     @include large {
       font-size: 1.2em;
+      padding: 0.8em;
     }
   }
 }
