@@ -21,7 +21,8 @@ const Favorite = {
       const detailRestaurant = await FavoriteRestaurantIdb.getAllRestaurant();
 
       if (detailRestaurant.length === 0) {
-        mainMenu.innerHTML =`Empty favorite Resto. Put one, by clicking heart button in the detail page.`
+        // eslint-disable-next-line quotes
+        mainMenu.innerHTML = `Empty favorite Resto. Put one, by clicking heart button in the detail page.`;
       }
 
       detailRestaurant.forEach((resto) => {
