@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+  font-family: "inter", sans-serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.skip-link {
+  position: absolute;
+  top: -61px;
+  left: -10px;
+  background-color: $secondary-color;
+  color: $light-color;
+  z-index: 100;
+  margin: 10px;
+  padding: 15px;
+  &:focus {
+    top: -16px;
+  }
+}
+
+//NAVBAR
+nav-bar {
+  width: 100%;
+  box-shadow: $box-shadow-one;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  color: $primary-color;
+  padding: 1em 0.5em; 
+  @include small {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1em 0;  
+  }
+}
+.logo {
+  font-size: 1.5rem;
+  margin-left: 15px;
+  color: $secondary-color;
+  font-weight: 600;
+  span {
+    color: $primary-color;
+  }
+  @include medium {
+    margin-left: 25px;
+  }
+  @include xx-large {
+    margin: 0.6rem 0.9rem;
+    margin-left: 30px;
+  }
+}
+.toggle-button {
+  position: absolute;
+  top: 0.7em;
+  right: 0.8rem;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background-color: transparent;
+  @include small {
+    display: flex;
+  }
+
+  .bar {
+    height: 3px;
+    width: 70%;
+    background-color: $primary-color;
+    border-radius: $border-radius-two * 2;
+    &:nth-child(2) {
+      height: 3.2px;
+      margin: 0.3rem 0;
+    }
+  }
+}
+.navbar-links {
+  @include small {
+    display: none;
+    width: 100%;
+    position: relative;
+  }
+  ul {
+    margin: 0;
+    padding-right: 1em;
+    padding-left: 0;
+    display: flex;
+    @include small {
+      flex-direction: column;
+      width: 100%;
+      position: absolute;
+      top: 1em;
+      background-color: antiquewhite;
+      z-index: 999;
+      padding-right: 0;
+    }
+  }
+  li {
+    list-style: none;
+    @include small {
+      text-align: center;
+    }
+    a {
+      font-weight: 500;
+      text-decoration: none;
+      color: $primary-color;
+      display: block;
+      padding: 1rem;
+      &:hover {
+        background-color: $secondary-color;
+        color: $light-color;
+      }
+      &:active{
+        color: green;
+        background-color: bisque;
+      }
+    }
+  }
+  &.active {
+    display: none;
+    @include small {
+      display: flex;
+    }
+  }
+}

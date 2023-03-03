@@ -1,0 +1,77 @@
+//HERO
+hero-resto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(
+      rgba(79, 79, 79, 0.445),
+      rgba(249, 118, 18, 0.211)
+    ),
+    url("../public/images/heros/hero-image_4.jpg") no-repeat center / cover;
+  color: black;
+  @include small{
+    background: linear-gradient(
+      rgba(79, 79, 79, 0.445),
+      rgba(249, 118, 18, 0.211)
+    ),
+    url("../public/images/heros/hero-image_4-small.jpg") no-repeat center / cover;
+  }
+  @include large{
+    background: linear-gradient(
+      rgba(79, 79, 79, 0.445),
+      rgba(249, 118, 18, 0.211)
+    ),
+    url("../public/images/heros/hero-image_4-large.jpg") no-repeat center / cover;
+  }
+  @include xx-large {
+    background: linear-gradient(
+      rgba(79, 79, 79, 0.445),
+      rgba(249, 118, 18, 0.211)
+    ),
+    url("../public/images/heros/hero-image_4-xl.jpg") no-repeat center / cover;
+    min-width: 1000px;
+    min-height: 500px;
+  }
+}
+.hero-inner {
+  margin: 0 auto;
+  max-width: 800px;
+  .hero-title {
+    color: $secondary-color;
+    font-size: 3em;
+    font-weight: bold;
+    text-shadow: 1.5px 1px 1px rgb(104, 104, 104);
+    margin: -0.2em;
+    @include large {
+      font-size: 4rem;
+      margin: -0.5em;
+    }
+    span {
+      color: $light-color;
+    }
+  }
+  .hero-tagline {
+    color: $light-color;
+    font-size: 1rem;
+    font-weight: 400;
+    text-shadow: 1.5px 2px 2px rgb(104, 104, 104);
+    @include large {
+      font-size: 2rem;
+    }
+  }
+  button {
+    background-color: $secondary-color;
+    border: 1px solid $light-color;
+    border-radius: 5px;
+    color: $light-color;
+    cursor: pointer;
+    font-size: 0.8em;
+    padding: 0.6em;
+    @include large {
+      font-size: 1.2em;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+$primary-color: rgb(23, 23, 23);
+$secondary-color: #fe4209;
+$light-color: white;
+$box-shadow-one: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+$box-shadow-two: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+$border-radius-one: 3px;
+$border-radius-two: 5px;
+@mixin small {
+  @media (max-width: 499px) {
+    @content;
+  }
+}
+@mixin medium {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+@mixin large {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+@mixin xx-large {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}

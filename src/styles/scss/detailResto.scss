@@ -1,0 +1,315 @@
+.container{
+    width: 100%;
+    padding: 0.2em 0.8em;
+    @include xx-large {
+        min-width: 1200px;
+      }
+    .main{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .title-container{
+            font-size: 1.5em;
+            text-align: center;
+            color: $secondary-color;
+            margin-top: 1.2em;
+            margin-bottom: 1em;
+            @include large{
+                margin-bottom: 1.5em;
+            }
+        }
+    }
+}
+.detail-resto{
+   font-size: .9em;
+}
+.detail{
+    font-size: 1em;
+    h1{
+        text-align: center;
+        color: $secondary-color;
+        font-size: 1.7em;
+    }
+}
+.detail-top{
+    @include large{
+        display: flex;
+        align-items: flex-start;
+    }
+    .cover-img{
+        height: 100%;
+        @include large{
+            width: 200%;
+            margin-right: 0.5em;
+            margin-top: 20px;
+        }
+        .img-detail{
+            width: 100%;
+            height: 50%;
+            object-fit: cover;
+            border-radius: $border-radius-two;
+        }
+    }
+    
+    .detail-info{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding-left: 0;
+        margin-left: 0.8em;
+        h2{
+            font-size: 1.5em;
+            margin-bottom: 0.5em;
+            margin-top: 0;
+            color: $secondary-color;
+        }
+        li{
+            list-style: none;
+            margin-bottom: 6px;
+            p{
+                line-height: 0.5em;
+                &:first-child{
+                    font-weight: 600;
+                }
+
+            }
+            .rating{
+                font-weight: bolder;
+                font-size: 1.1em;
+                .bi{
+                    margin-right: 5px;
+                    color: #ffd000;
+                    font-size: 1.4em;
+                }
+            }
+            .category{
+                border:1.5px solid $secondary-color;
+                border-radius: $border-radius-one;
+                padding: 0 8px;
+            }
+        }
+    } 
+}
+.detail-menu{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: rgb(255, 244, 237);
+    margin-bottom: 2em;
+    @include large{
+        flex-direction: column;
+       justify-content: center;
+    }
+    .detail-food{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        @include large{
+            margin-right: 5em;
+            align-items: flex-start;
+            height: fit-content;
+        }
+        h4{
+            font-size: 1.4em;
+            @include large{
+                padding: 0 1em;
+                margin-bottom: 0;
+            }
+        }
+        ul{
+            padding: 0;
+            @include large{
+                display: grid;
+                grid-template-columns: repeat(9, auto);
+                row-gap: 1em;
+            }
+            li{
+                padding: 0.5em 0;
+                list-style: none;
+                @include large{
+                    margin-left: 1.3em;
+                    padding: 0.5em;
+                    border: 1px solid $secondary-color;
+                    border-radius: $border-radius-one;
+                    text-align: left;
+                }
+            }
+        }
+    }
+    .detail-drink{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        @include large{
+            margin-right: 5em;
+            align-items: flex-start;
+        }
+        h4{
+            font-size: 1.4em;
+            @include large{
+                padding: 0 1em;
+                margin-bottom: 0;
+            }
+        }
+        ul{
+            padding: 0;
+            @include large{
+                display: grid;
+                grid-template-columns: repeat(9, auto);
+                row-gap: 1em
+            }
+            li{
+                padding: 0.5em 0;
+                list-style: none;
+                @include large{
+                    margin-left: 1.3em;
+                    padding: 0.5em;
+                    border: 1px solid $secondary-color;
+                    border-radius: $border-radius-one;
+                }
+            }
+        }
+    }
+}
+.detail-review{
+    display: grid;
+    padding: 10px;
+    gap: 10px;
+    @include large{
+        grid-template-columns: repeat(3, 3fr);
+    }
+    &-item{
+        background-color: $light-color;
+        padding: 0em 1em 1em;
+        border-radius: $border-radius-two;
+        box-shadow: $box-shadow-one;
+        &:first-child{
+            margin-top: 1em;
+            @include large{
+                margin-top: 0;
+            }
+        }
+        &:last-child{
+            margin-bottom: 1em;
+            @include large{
+                margin-bottom: 0;
+            }
+        }
+        .review-header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .review-name{
+                font-size: 1.2em;
+                font-weight: 650;
+                text-transform: capitalize;
+                margin-bottom: 1em;
+                .bi{
+                    margin-right: 5px;
+                    color: $secondary-color;
+                }
+            }
+            .review-date{
+                font-size: 0.8em;
+                color: $secondary-color;
+            }
+        }
+
+    }
+}
+form-review{
+    padding: 10px;
+    width: 100%;
+}
+form{
+    margin-top: 1em;
+    margin-bottom: 1.2em;
+    padding: 1em;
+    border: 2px solid rgb(255, 181, 134);
+    border-radius: 0.5em;
+    @include large{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    h1{
+        margin-top: 0;
+        margin-bottom: 1em;
+        color: $secondary-color;
+        font-size: 1.4em;
+        text-align: center;
+    }
+    .form-label{
+        padding-bottom: 10px;
+        font-weight: 500;
+        font-size: 1em;
+        color: $secondary-color;
+        @include large{
+            font-size: 1.2em;
+        }
+    }
+    .form-control{
+        width: 100%;
+        min-height: 2.2em;
+        padding: 0.3em;
+        font-size: 1em;
+        font-weight: normal;
+        border: 1px solid $secondary-color;
+        border-radius: $border-radius-one;
+        background-color: #fff;
+         box-shadow: $box-shadow-two;
+         @include large{
+            min-height: 2.4em;
+         }
+    }
+    .label-name{
+        margin-bottom: 1.1em;
+        margin-top: 0.5em;  
+        @include large{
+            width: 70%;
+        }
+    }
+    .button-submit{
+        padding: 0.77em 1em;
+        font-weight: 600; 
+        background-color: $secondary-color;
+        color: $light-color;
+        border: 1px solid transparent;
+        font-size: 1em;
+        cursor: pointer;
+        border-radius: $border-radius-one;
+        box-shadow: $box-shadow-one;
+        @include large{
+            align-self: flex-start;
+            padding: 0.7em 1.1em;
+            font-size: 1.1em
+        };
+    }
+} 
+
+.like {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $secondary-color;
+
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    border-radius: 50%;
+    border: 0;
+
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}
