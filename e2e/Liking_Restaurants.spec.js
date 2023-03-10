@@ -3,84 +3,87 @@ const assert = require('assert');
 Feature('Favorite Restaurants');
 
 Before(({ I }) => {
-    I.amOnPage('/#/favorite');
+  I.amOnPage('/#/favorite');
 });
 
-// const emptyRestaurantText = 'Empty favorite Resto'
-
 Scenario('showing empty favorite restaurant', ({ I }) => {
-    I.seeElement("#main-menu");
-    I.see('Empty favorite Resto. Put one, by clicking heart button in the detail page.', "#main-menu");
+  I.seeElement('#main-menu');
+  I.see('Empty favorite Resto. Put one, by clicking heart button in the detail page.', '#main-menu');
 });
 
 Scenario('liking one restaurant', async ({ I }) => {
-    I.see('Empty favorite Resto. Put one, by clicking heart button in the detail page.', '#main-menu');
-  
-    I.amOnPage('/');
-    
-    I.waitForElement('.menu-content-name a', 10);
+  I.see('Empty favorite Resto. Put one, by clicking heart button in the detail page.', '#main-menu');
 
-    const firstRestoCard = locate('.menu-content-name a').first();
-    const firstRestoCardTitle = await I.grabTextFrom(firstRestoCard);
-    I.click(firstRestoCard);
-  
-    I.seeElement('#likeButton');
-    I.click('#likeButton');
-  
-    I.amOnPage('/#/favorite');
-    I.seeElement('.menu-item');
-    const likedCardTitle = await I.grabTextFrom('.menu-content-name');
-    assert.strictEqual(firstRestoCardTitle, likedCardTitle);
+  I.amOnPage('/');
+
+  I.wait(3);
+  I.seeElement('.menu-content-name a');
+
+  const firstRestoCard = locate('.menu-content-name a').first();
+  const firstRestoCardTitle = await I.grabTextFrom(firstRestoCard);
+  I.click(firstRestoCard);
+
+  I.wait(3);
+  I.seeElement('#likeButton');
+  I.click('#likeButton');
+
+  I.amOnPage('/#/favorite');
+  I.seeElement('.menu-item');
+  const likedCardTitle = await I.grabTextFrom('.menu-content-name');
+  assert.strictEqual(firstRestoCardTitle, likedCardTitle);
 });
 
 Scenario('unliking one restaurant', async ({ I }) => {
-    I.see('Empty favorite Resto', '#main-menu');
-  
-    I.amOnPage('/');
-    I.waitForElement('.menu-content-name a', 10);
-    const firstRestoCard = locate('.menu-content-name a').first();
-    const firstRestoCardTitle = await I.grabTextFrom(firstRestoCard);
-    I.click(firstRestoCard);
-  
-    I.seeElement('#likeButton');
-    I.click('#likeButton');
-  
-    I.amOnPage('/#/favorite');
-    I.seeElement('.menu-item');
-    const likedCardTitle = await I.grabTextFrom('.menu-content-name');
-    assert.strictEqual(firstRestoCardTitle, likedCardTitle);
+  I.see('Empty favorite Resto', '#main-menu');
 
-    I.click(likedCardTitle);
+  I.amOnPage('/');
 
-    I.seeElement('#likeButton');
-    I.click('#likeButton');
+  I.wait(3);
+  I.seeElement('.menu-content-name a');
+  const firstRestoCard = locate('.menu-content-name a').first();
+  const firstRestoCardTitle = await I.grabTextFrom(firstRestoCard);
+  I.click(firstRestoCard);
 
-    I.amOnPage('/#/favorite');
-    I.seeElement('#main-menu');
-    const noFavRestaurant = await I.grabTextFrom('#main-menu');
-    assert.strictEqual(noFavRestaurant, 'Empty favorite Resto. Put one, by clicking heart button in the detail page.');
+  I.wait(3);
+  I.seeElement('#likeButton');
+  I.click('#likeButton');
+
+  I.amOnPage('/#/favorite');
+  I.seeElement('.menu-item');
+  const likedCardTitle = await I.grabTextFrom('.menu-content-name');
+  assert.strictEqual(firstRestoCardTitle, likedCardTitle);
+
+  I.click(likedCardTitle);
+
+  I.wait(3);
+  I.seeElement('#likeButton');
+  I.click('#likeButton');
+
+  I.amOnPage('/#/favorite');
+  I.seeElement('#main-menu');
+  const noFavRestaurant = await I.grabTextFrom('#main-menu');
+  assert.strictEqual(noFavRestaurant, 'Empty favorite Resto. Put one, by clicking heart button in the detail page.');
 });
 
 Scenario('Customer review', async ({ I }) => {
-    I.see('Empty favorite Resto. Put one, by clicking heart button in the detail page.', '#main-menu');
-  
-    I.amOnPage('/');
-    const reviewText = 'Automated reviewww';
+  I.see('Empty favorite Resto. Put one, by clicking heart button in the detail page.', '#main-menu');
 
-    I.waitForElement('.menu-content-name a');
-    I.click(locate('.menu-content-name a').first());
-  
-    I.wait('form-review form');
-  
-    // const textReview = ;
-    I.fillField('inputName', 'Syifa Sukma');
-    I.fillField('inputReview', reviewText);
-  
-    I.click('#submit-review');
+  I.amOnPage('/');
+  const reviewText = 'Automated reviewww';
+  const addName = 'Syifa Sukma';
 
-    // I.waitForResponse('https://restaurant-api.dicoding.dev/review');
-    const lastReview = locate('.review-body').last();
-    const textLastReview = await I.grabTextFrom(lastReview);
-  
-    assert.strictEqual(reviewText, textLastReview);
+  I.waitForElement('.menu-content-name a');
+  I.click(locate('.menu-content-name a').first());
+
+  I.wait('form-review form');
+
+  I.fillField('inputName', addName);
+  I.fillField('inputReview', reviewText);
+
+  I.click('#submit-review');
+
+  const lastReview = locate('.review-body').last();
+  const textLastReview = await I.grabTextFrom(lastReview);
+
+  assert.strictEqual(reviewText, textLastReview);
 });
