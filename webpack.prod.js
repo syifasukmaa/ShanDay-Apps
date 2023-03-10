@@ -1,9 +1,8 @@
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const { merge } = require('webpack-merge');
 const path = require('path');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const common = require('./webpack.common');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
 
 module.exports = merge(common, {
   mode: 'production',
